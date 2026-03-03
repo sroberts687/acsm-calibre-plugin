@@ -437,6 +437,8 @@ def fulfill(acsm_file, do_notify = False):
     replyData = sendRequestDocu(fulfill_req_signed, fulfillURL).decode("utf-8")
 
     if "<error" in replyData: 
+        print("error in replyData")
+        print(replyData)
         if "E_ADEPT_DISTRIBUTOR_AUTH" in replyData:
             # This distributor *always* wants authentication, so force that again
             ret = doOperatorAuth(fulfillURL)

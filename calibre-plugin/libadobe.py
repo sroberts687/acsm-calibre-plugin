@@ -290,7 +290,7 @@ def sendHTTPRequest_DL2FILE(URL, outputfile):
     if ret_code != 200:
         return ret_code
 
-    with open(outputfile, "wb") as f:
+    with open(outputfile, "wb") as f: #NOTE: this will error out if outputfile has special characters
         while True: 
             chunk = handler.read(chunksize)
             if not chunk: 

@@ -8,3 +8,10 @@
 /deps
 /releases
 /adobe_account_backup_*.zip
+/calibre-plugin/*/*.epub
+/calibre-plugin/*/*.acsm
+calibre-plugin/activation.xml
+calibre-plugin/device.xml
+calibre-plugin/devicesalt
+calibre-plugin/register_ADE_account.py
+calibre-plugin/register_ADE_account.py

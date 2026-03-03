@@ -120,11 +120,25 @@ def download(replyData):
 
 
 def main():
+    
+    epubs = []
+    epubs += [each for each in os.listdir() if each.endswith('.epub')]
+    print("moving old epubs")
+    print(epubs)
+    
+    for epub in epubs:
+        shutil.move(os.path.join(os.getcwd(), epub), os.path.join(os.getcwd(), "old_files\\"))
+    
+    files = []
 
-    if len(sys.argv) < 2:
-        files = [ "URLLink.acsm" ]
-    else: 
-        files = sys.argv[1:]
+    files += [each for each in os.listdir() if each.endswith('.acsm')]
+
+    print(files)
+
+    # if len(sys.argv) < 2:
+    #     files = [ "URLLink.acsm" ]
+    # else: 
+    #     files = sys.argv[1:]
 
     for file in files:
 
@@ -138,8 +152,12 @@ def main():
             success = download(replyData)
             if (success is False):
                 print("That didn't work!")
+            else:
+                print("moved adobe file to old_files")
+                shutil.move(os.path.join(os.getcwd(), file), os.path.join(os.getcwd(), "old_files\\"))
 
 
 
 if __name__ == "__main__":
     main()
+    print("hi")
